@@ -4,15 +4,15 @@
 .DESCRIPTION
 	Check AD Replication in a DC Server and returns Nagios output and code.
 .PARAMETER Warning
-	Number of failed replications for warning treshold.
+	Number of failed replications for warning threshold.
 	Default 1.
 .PARAMETER Critical
-	Number of failed replications for critical treshold.
+	Number of failed replications for critical threshold.
 	Default 5.
 .OUTPUTS
 	OK: AD replication successful.
-	WARNING: Failed replications equal to Warning treshold.
-	CRITICAL: Failed replications equal to Critical treshold.
+	WARNING: Failed replications equal to Warning threshold.
+	CRITICAL: Failed replications equal to Critical threshold.
 .EXAMPLE
 	.\Get-ADReplication.ps1 -Warning 5 -Critical 10
 .NOTES 
@@ -70,7 +70,7 @@ if ($SysvolStatus.State) {
 	}
 }
 else {
-	$NagiosOutput = "UNKNOWN - Can not chech Sysvol status. | Syncs=$($Syncs);;;; SyncErrors=$($SyncErrors);$Warning;$Critical;;"
+	$NagiosOutput = "UNKNOWN - Can not check Sysvol status. | Syncs=$($Syncs);;;; SyncErrors=$($SyncErrors);$Warning;$Critical;;"
 	Write-Host $NagiosOutput
 	Exit(3)
 }
